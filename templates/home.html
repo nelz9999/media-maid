@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Media Maid - Account Management Page{% endblock %}
+
+{% block content %}
+  	<p>You have {{ accounts|length }} associated account(s).</p>
+  	<table border="1px">
+  		<tr>
+  			<td>Twitter Handle</td>
+  			<td>Deletions Activated</td>
+  			<td>Deletion Window (in Hours)</td>
+  		</tr>
+	    {% for account in accounts %}
+			<tr>
+				<td><a href="/user/edit?id={{ account.twitter_id }}">{{ account.display_name }}</a></td>
+				<td>{{ account.active }}</td>
+				<td>{{ account.hours}}</td>
+				<!-- {{ account.activated_status_id }}  -->
+				<!-- {{ account.activated_on }}  -->
+			</tr>
+    	{% endfor %}
+  	</table>
+  	<p></p>
+  	{% if allow_add %}
+    <a href="/user/add">Add A Twitter Account</a>
+    {% endif %}
+{% endblock %}
+    

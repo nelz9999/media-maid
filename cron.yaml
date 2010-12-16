@@ -1,0 +1,5 @@
+cron:
+- description: hourly processing
+  url: /admin/delegator
+  schedule: every 60 minutes
+  timezone: America/Los_Angeles

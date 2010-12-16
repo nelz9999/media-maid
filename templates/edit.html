@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Media Maid - Edit Account @{{ account.display_name }}{% endblock %}
+
+{% block content %}
+	<form action="/user/update/{{ account.twitter_id }}" method="post">      
+    <table border="1px">
+  		<tr>
+  			<td>Name</td>
+  			<td>{{ account.display_name }}</td>
+  		</tr>
+  		<tr>
+  			<td>Account Active for Deletions</td>
+  			<td><input name="input_active" type="checkbox" value="True" {% if account.active %}checked{% endif %}/></td>
+  		</tr>
+  		<tr>
+  			<td>Delete Tweets Older Than</td>
+  			<td>
+  				<select name="input_hours">
+  					<option value="6" {% ifequal 6 account.hours%} selected="selected"{% endifequal %}>1/4 Day (6 Hours)</option>
+  					<option value="12" {% ifequal 12 account.hours%} selected="selected"{% endifequal %}>1/2 Day (12 Hours)</option>
+  					<option value="24" {% ifequal 24 account.hours%} selected="selected"{% endifequal %}>1 Day (24 Hours)</option>
+  					<option value="36" {% ifequal 36 account.hours%} selected="selected"{% endifequal %}>1 1/2 Days (36 Hours)</option>
+  					<option value="48" {% ifequal 48 account.hours%} selected="selected"{% endifequal %}>2 Days (48 Hours)</option>
+  					<option value="72" {% ifequal 72 account.hours%} selected="selected"{% endifequal %}>3 Days (72 Hours)</option>  					
+  					<option value="96" {% ifequal 96 account.hours%} selected="selected"{% endifequal %}>4 Days (96 Hours)</option>  					
+  					<option value="120" {% ifequal 120 account.hours%} selected="selected"{% endifequal %}>5 Days (120 Hours)</option>  					
+  					<option value="144" {% ifequal 144 account.hours%} selected="selected"{% endifequal %}>6 Days (144 Hours)</option>  					
+  					<option value="168" {% ifequal 168 account.hours%} selected="selected"{% endifequal %}>7 Days (168 Hours)</option>  					
+  				</select>
+  			</td>
+  		</tr>
+  	</table>
+  	<input type="submit" value="Submit"/> <a href="/user/home">Go Back</a>
+    </form>
+{% endblock %}

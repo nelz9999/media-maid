@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Media Maid - FAQ Page{% endblock %}
+
+{% block content %}
+	<h1 class='red'>Frequently Asked Questions</h1> 
+	<h3>Limits</h3>
+	<p>Each user is limited to having at most 10 associated Twitter accounts.
+	<br /><br />
+	Each Twitter account is limited to 25 deletions per hour. This means a 
+	sustained rate greater than 25 posts per hour will force Media Maid to 
+	'fall behind' and leave some posts in the stream.
+	<br/><br/>
+	Media Maid will <strong>not</strong> delete any posts made before you
+	activated an associated Twitter account. This means that if you choose
+	a 24-hour window, it will take 24 hours before you see the service working.
+	</p> 
+	<h3>Who</h3>
+	<p>This site is created and maintained by Nelz Carpentier.
+	[<a href="http://nelz.net">blog</a>, 
+	<a href="http://twitter.com/nelz9999">twitter</a>]
+	<br/><br/>
+	For questions, bug reports, or feature requests please email [mediamaidsite (at) gmail].</p>
+{% endblock %}

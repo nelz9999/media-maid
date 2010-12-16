@@ -1,0 +1,42 @@
+application: media-maid
+version: 1
+runtime: python
+api_version: 1
+
+default_expiration: "30d"
+
+handlers:
+- url: /favicon.ico
+  static_files: static/images/favicon.ico
+  upload: static/images/favicon.ico
+
+- url: /images
+  static_dir: static/images
+  secure: always
+  
+- url: /stylesheets
+  static_dir: stylesheets
+  secure: always
+
+- url: /admin/.*
+  script: main.py
+  login: admin
+  secure: always
+
+- url: /user/.*
+  script: main.py
+  login: required
+  secure: always
+
+- url: /public/.*
+  script: main.py
+  secure: always
+
+- url: /
+  script: main.py
+  secure: always
+  
+- url: /.*
+  script: main.py
+  secure: always
+  login: admin
